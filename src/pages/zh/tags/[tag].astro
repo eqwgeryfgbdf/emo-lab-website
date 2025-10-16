@@ -1,0 +1,42 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../../components/FormattedDate.astro';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter(p => p.data.lang === 'zh');
+  const tagSet = new Set(posts.flatMap(p => p.data.tags || []));
+  return Array.from(tagSet).map(tag => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+const all = (await getCollection('blog')).filter(p => p.data.lang === 'zh');
+const posts = all.filter(p => (p.data.tags||[]).includes(tag));
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <BaseHead title={`標籤：${tag}`} description={`標籤 ${tag} 的文章`} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>標籤：{tag}</h1>
+      <ul>
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}/`}>
+              <h4>{post.data.title}</h4>
+              <p><FormattedDate date={post.data.pubDate} /></p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>
+

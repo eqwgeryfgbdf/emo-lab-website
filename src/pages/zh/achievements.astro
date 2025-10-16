@@ -1,0 +1,135 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE_ZH, SITE_DESCRIPTION_ZH } from '../../consts';
+import { getCollection } from 'astro:content';
+
+const achievements = await getCollection('achievements');
+const sortedAchievements = achievements.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+// 按類型分組
+const competitions = sortedAchievements.filter(a => a.data.type === 'competition');
+const publications = sortedAchievements.filter(a => a.data.type === 'publication');
+const awards = sortedAchievements.filter(a => a.data.type === 'award');
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+	<head>
+		<BaseHead title={`研究成果 - ${SITE_TITLE_ZH}`} description={SITE_DESCRIPTION_ZH} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>🏆 EMO Lab 研究成果</h1>
+			<p>我們的研究成果與競賽獎項展現了我們在人工智慧與電腦視覺領域追求卓越的承諾。</p>
+			
+			<section class="achievements-section">
+				<h2>🏅 競賽獎項</h2>
+				<div class="achievements-grid">
+					{competitions.map((achievement) => (
+						<div class="achievement-card">
+							<h3>{achievement.data.title}</h3>
+							<p class="project">{achievement.data.project}</p>
+							<p class="prize">🏆 {achievement.data.prize}</p>
+							<p class="date">{new Date(achievement.data.date).toLocaleDateString('zh-TW')}</p>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section class="achievements-section">
+				<h2>📚 論文發表</h2>
+				<div class="achievements-grid">
+					{publications.map((achievement) => (
+						<div class="achievement-card">
+							<h3>{achievement.data.title}</h3>
+							<p class="project">{achievement.data.project}</p>
+							<p class="prize">📄 {achievement.data.prize}</p>
+							<p class="date">{new Date(achievement.data.date).toLocaleDateString('zh-TW')}</p>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section class="achievements-section">
+				<h2>🎖️ 獲獎記錄</h2>
+				<div class="achievements-grid">
+					{awards.map((achievement) => (
+						<div class="achievement-card">
+							<h3>{achievement.data.title}</h3>
+							<p class="project">{achievement.data.project}</p>
+							<p class="prize">🏆 {achievement.data.prize}</p>
+							<p class="date">{new Date(achievement.data.date).toLocaleDateString('zh-TW')}</p>
+						</div>
+					))}
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+
+	.achievements-section {
+		margin: 3rem 0;
+	}
+
+	.achievements-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.achievement-card {
+		background: white;
+		border: 1px solid #e0e0e0;
+		border-radius: 8px;
+		padding: 1.5rem;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		transition: transform 0.2s ease;
+	}
+
+	.achievement-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+	}
+
+	.achievement-card h3 {
+		margin: 0 0 0.5rem 0;
+		color: #333;
+		font-size: 1.1rem;
+	}
+
+	.achievement-card .project {
+		margin: 0.5rem 0;
+		color: #666;
+		font-style: italic;
+	}
+
+	.achievement-card .prize {
+		margin: 0.5rem 0;
+		color: #2c5aa0;
+		font-weight: bold;
+	}
+
+	.achievement-card .date {
+		margin: 0.5rem 0 0 0;
+		color: #888;
+		font-size: 0.9rem;
+	}
+
+	@media (max-width: 768px) {
+		.achievements-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

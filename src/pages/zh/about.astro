@@ -1,0 +1,22 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <BaseHead title={`關於 · ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>關於 EMO Lab</h1>
+      <p>以白色科技風為基調，聚焦人工智慧的研究與應用。</p>
+    </main>
+    <Footer />
+  </body>
+</html>
+

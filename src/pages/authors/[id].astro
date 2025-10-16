@@ -1,0 +1,43 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+export async function getStaticPaths() {
+  const authors = await getCollection('authors');
+  return authors.map(a => ({ params: { id: a.id } }));
+}
+
+const { id } = Astro.params;
+const authors = await getCollection('authors');
+const author = authors.find(a => a.id === id);
+const posts = (await getCollection('blog')).filter(p => p.data.author === id);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`Author: ${author?.data.name ?? id}`} description={author?.data.bio ?? ''} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>{author?.data.name ?? id}</h1>
+      {author?.data.bio && <p>{author.data.bio}</p>}
+      <ul>
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}/`}>
+              <h4>{post.data.title}</h4>
+              <p><FormattedDate date={post.data.pubDate} /></p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>
+

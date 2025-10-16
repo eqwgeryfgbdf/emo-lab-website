@@ -1,0 +1,27 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <BaseHead title={`${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>👋 歡迎來到 EMO Lab</h1>
+      <p>專注於人工智慧與科技的探索與實驗。</p>
+      <ul>
+        <li>編輯此頁：<code>src/pages/zh/index.astro</code></li>
+        <li>查看部落格文章：<code>src/content/blog/</code></li>
+        <li>自訂版面：<code>src/layouts/BlogPost.astro</code></li>
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>
+

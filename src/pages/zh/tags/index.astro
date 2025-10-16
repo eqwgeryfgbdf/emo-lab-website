@@ -1,0 +1,29 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).filter(p => p.data.lang === 'zh');
+const tags = Array.from(new Set(posts.flatMap(p => p.data.tags || []))).sort();
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <BaseHead title={`標籤`} description={`文章標籤`} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>標籤</h1>
+      <ul>
+        {tags.map(tag => (
+          <li><a href={`/zh/tags/${encodeURIComponent(tag)}/`}>{tag}</a></li>
+        ))}
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>
+
