@@ -1,0 +1,273 @@
+{
+  "project": "EMO Lab Website",
+  "version": "1.0.0",
+  "description": "EMO Lab官方網站命名規範文件",
+  "lastUpdated": "2025-01-27",
+  
+  "fileNaming": {
+    "html": {
+      "pattern": "kebab-case",
+      "examples": [
+        "index.html",
+        "about.html", 
+        "team.html",
+        "achievements.html",
+        "partners.html",
+        "contact.html"
+      ],
+      "rules": [
+        "使用小寫字母",
+        "單詞間用連字符分隔",
+        "避免特殊字符",
+        "保持簡潔明瞭"
+      ]
+    },
+    "css": {
+      "pattern": "kebab-case",
+      "examples": [
+        "main.css",
+        "responsive.css",
+        "animations.css"
+      ],
+      "rules": [
+        "使用小寫字母",
+        "單詞間用連字符分隔",
+        "功能導向命名"
+      ]
+    },
+    "javascript": {
+      "pattern": "camelCase",
+      "examples": [
+        "main.js",
+        "dataLoader.js",
+        "animations.js"
+      ],
+      "rules": [
+        "變數和函數使用camelCase",
+        "常數使用UPPER_SNAKE_CASE",
+        "類別使用PascalCase"
+      ]
+    },
+    "images": {
+      "pattern": "kebab-case",
+      "examples": [
+        "hero-background.jpg",
+        "team-photo-group.jpg",
+        "achievement-certificate.png"
+      ],
+      "rules": [
+        "使用小寫字母",
+        "單詞間用連字符分隔",
+        "包含描述性前綴",
+        "指定檔案格式"
+      ]
+    }
+  },
+  
+  "cssNaming": {
+    "methodology": "BEM (Block Element Modifier)",
+    "block": {
+      "pattern": "block-name",
+      "examples": [
+        "hero",
+        "navigation",
+        "achievement-card",
+        "news-item"
+      ]
+    },
+    "element": {
+      "pattern": "block-name__element-name",
+      "examples": [
+        "hero__title",
+        "navigation__menu",
+        "achievement-card__image",
+        "news-item__date"
+      ]
+    },
+    "modifier": {
+      "pattern": "block-name--modifier-name",
+      "examples": [
+        "hero--fullscreen",
+        "achievement-card--featured",
+        "button--primary",
+        "button--secondary"
+      ]
+    },
+    "utility": {
+      "pattern": "u-utility-name",
+      "examples": [
+        "u-text-center",
+        "u-margin-large",
+        "u-hidden",
+        "u-visible"
+      ]
+    }
+  },
+  
+  "javascriptNaming": {
+    "variables": {
+      "pattern": "camelCase",
+      "examples": [
+        "siteData",
+        "achievementsList",
+        "currentFilter",
+        "isLoading"
+      ]
+    },
+    "functions": {
+      "pattern": "camelCase",
+      "examples": [
+        "loadSiteData()",
+        "renderAchievements()",
+        "toggleMobileMenu()",
+        "initAnimations()"
+      ]
+    },
+    "constants": {
+      "pattern": "UPPER_SNAKE_CASE",
+      "examples": [
+        "API_BASE_URL",
+        "MAX_NEWS_ITEMS",
+        "ANIMATION_DURATION",
+        "BREAKPOINTS"
+      ]
+    },
+    "classes": {
+      "pattern": "PascalCase",
+      "examples": [
+        "DataLoader",
+        "AnimationController",
+        "ModalManager",
+        "FormValidator"
+      ]
+    }
+  },
+  
+  "colorVariables": {
+    "primary": {
+      "darkBlue": "#0a0e27",
+      "mediumBlue": "#1a1d3a",
+      "accentBlue": "#667eea",
+      "accentPurple": "#764ba2"
+    },
+    "secondary": {
+      "white": "#ffffff",
+      "lightGray": "#f8f9fa",
+      "mediumGray": "#6c757d",
+      "darkGray": "#343a40"
+    },
+    "status": {
+      "success": "#28a745",
+      "warning": "#ffc107",
+      "error": "#dc3545",
+      "info": "#17a2b8"
+    }
+  },
+  
+  "typography": {
+    "primary": {
+      "fontFamily": "Noto Sans TC, sans-serif",
+      "usage": "中文內容"
+    },
+    "secondary": {
+      "fontFamily": "Inter, sans-serif", 
+      "usage": "英文內容"
+    },
+    "sizes": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem"
+    }
+  },
+  
+  "spacing": {
+    "scale": "0.25rem",
+    "values": {
+      "0": "0",
+      "1": "0.25rem",
+      "2": "0.5rem",
+      "3": "0.75rem",
+      "4": "1rem",
+      "5": "1.25rem",
+      "6": "1.5rem",
+      "8": "2rem",
+      "10": "2.5rem",
+      "12": "3rem",
+      "16": "4rem",
+      "20": "5rem",
+      "24": "6rem"
+    }
+  },
+  
+  "breakpoints": {
+    "mobile": "768px",
+    "tablet": "768px",
+    "desktop": "1200px",
+    "large": "1440px"
+  },
+  
+  "fileStructure": {
+    "root": [
+      "index.html",
+      "about.html",
+      "team.html", 
+      "achievements.html",
+      "partners.html",
+      "contact.html",
+      "naming-conventions.json"
+    ],
+    "css": [
+      "main.css",
+      "responsive.css", 
+      "animations.css"
+    ],
+    "js": [
+      "main.js",
+      "dataLoader.js",
+      "animations.js"
+    ],
+    "data": [
+      "site-data.json",
+      "achievements.json"
+    ],
+    "images": [
+      "hero/",
+      "team/",
+      "achievements/",
+      "partners/"
+    ]
+  },
+  
+  "bestPractices": {
+    "html": [
+      "使用語義化標籤",
+      "保持結構清晰",
+      "添加適當的alt屬性",
+      "使用ARIA標籤提升無障礙性"
+    ],
+    "css": [
+      "使用CSS變數管理主題",
+      "遵循BEM命名規範",
+      "保持樣式模組化",
+      "優先使用Flexbox和Grid"
+    ],
+    "javascript": [
+      "使用const和let而非var",
+      "函數命名要描述性",
+      "保持函數純粹性",
+      "適當添加註解"
+    ],
+    "general": [
+      "保持代碼一致性",
+      "定期重構和優化",
+      "遵循單一職責原則",
+      "保持文件結構清晰"
+    ]
+  }
+}

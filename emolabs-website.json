@@ -4,77 +4,77 @@
       "fullName": "Eternal Matrix of Omniscience Laboratory",
       "founded": "2024-08-31",
       "slogan": "有點EMO的人做著不EMO的事，讓看似平凡的人生有著不平凡的意義與價值",
-      "mission": "EMO Lab全名為Eternal Matrix of Omniscience，成立於2024年中，起源自龍華科技大學一群對科技與生活觀察敏銳的學生與研究人員。\n團隊名稱的縮寫EMO不僅是符號，更是一種態度——我們相信每一則時事與微小的生活細節都是通往全知矩陣的一部分。我們拒絕庸庸碌碌地走過這個時代，透過實驗室的思辨與實作，將對世界的感知與批判化為具體的計畫與創作，探索科技如何與文化、生活與情感對話，致力於將人工智慧(AI)、物聯網(IoT)、數位影像(digital imaging)、創意設計等跨領域技術轉化為觸動人心、改變生活的應用。\n我們以科技為筆、生活為紙，繪製屬於這個世代的數位圖景；真正的全知不是掌握所有資料，而是能在細微之處看見世界、在瑣事中領悟本質。",
+      "mission": "EMO Lab全名為Eternal Matrix of Omniscience，成立於2024年中，起源自龍華科技大學一群對科技與生活觀察敏銳的學生與研究人員。\n團隊名稱的縮寫EMO不僅是符號，更是一種態度——我們相信每一則時事與微小的生活細節都是通往全知矩陣的一部分。我們拒絕庸庸碌碌地走過這個時代，透過實驗室的思辨與實作，將對世界的感知與批判化為具體的計畫與創作，探索科技如何與文化、生活與情感對話，致力於將人工智慧(AI)、物聯網(IoT)、數位影像(digital imaging)、創意設計等跨領域技術轉化為觸動人心、改變生活的應用【405677571201490†L40-L71】。\n我們以科技為筆、生活為紙，繪製屬於這個世代的數位圖景；真正的全知不是掌握所有資料，而是能在細微之處看見世界、在瑣事中領悟本質【405677571201490†L59-L63】。",
       "news": [
         { "date": "2025-08-29", "title": "參與 MC & WASN 2025 研討會" },
         { "date": "2025-04-02", "title": "網站搬遷至 Google Sites" },
         { "date": "2025-03-15", "title": "參與『2025 E化系統創意應用競賽』以『基於骨架物件辨識的多使用者即時於英文拼字翻譯的手語系統』榮獲第二名" },
         { "date": "2025-03-15", "title": "參與『2025 E化系統創意應用競賽』以『結合深度學習與即時電腦視覺於高級工場安全智慧化系統』榮獲優選" },
-        { "date": "2025-02-10", "title": "投稿『2025 IEEE International Conference on Computation, Big‑Data and Engineering (IEEE ICCBE 2025)』" },
+        { "date": "2025-02-10", "title": "投稿『2025 IEEE International Conference on Computation, Big‑Data and Engineering (IEEE ICCBE 2025)』" },
         { "date": "2024-12-31", "title": "投稿『2025 E化系統創意應用競賽』" },
-        { "date": "2024-08-31", "title": "EMO Lab 成立" }
+        { "date": "2024-08-31", "title": "EMO Lab 成立" }
       ],
       "team": [
-        { "name": "Ryan Chang", "role": "Founder & Leader", "description": "創辦人兼領導人" },
-        { "name": "Roy Lung", "role": "Founder & Coder", "description": "創辦人兼程式開發者" },
-        { "name": "Rain Lin", "role": "Founder & Coder", "description": "創辦人兼程式開發者" }
+        { "name": "Ryan Chang", "role": "Founder & Leader", "description": "創辦人兼領導人" },
+        { "name": "Roy Lung", "role": "Founder & Coder", "description": "創辦人兼程式開發者" },
+        { "name": "Rain Lin", "role": "Founder & Coder", "description": "創辦人兼程式開發者" }
       ],
       "contact": {
         "email": "emolab0831@gmail.com"
       },
       "partners": {
         "universities": [
-          "國立臺灣科技大學 (National Taiwan University of Science and Technology)",
-          "國立臺北科技大學 (TAIPEI TECH / National Taipei University of Technology)",
-          "國立高雄科技大學 (National Kaohsiung University of Science and Technology)",
-          "國立雲林科技大學 (National Yunlin University of Science & Technology)",
-          "國立虎尾科技大學 (National Formosa University)",
-          "國立勤益科技大學 (National Chin‑Yi University of Technology)",
-          "國立中央大學 (National Central University)",
-          "國立聯合大學 (National United University)",
-          "國立屏東大學 (National Pingtung University)",
-          "國立金門大學 (National Quemoy University)",
-          "淡江大學 (Tamkang University)",
-          "大同大學 (Tatung University)",
-          "龍華科技大學 (Lunghwa University of Science and Technology)",
-          "臺北城市科技大學 (Taipei City University of Science and Technology)",
-          "宏國德霖科技大學 (Hungkuo Delin University of Technology)",
-          "Tunku Abdul Rahman University of Management and Technology (TAR UMT)",
-          "寧德師範學院 (Ningde Normal University)",
-          "廈門大學 (Xiamen University)"
+          "國立臺灣科技大學 (National Taiwan University of Science and Technology)",
+          "國立臺北科技大學 (TAIPEI TECH / National Taipei University of Technology)",
+          "國立高雄科技大學 (National Kaohsiung University of Science and Technology)",
+          "國立雲林科技大學 (National Yunlin University of Science & Technology)",
+          "國立虎尾科技大學 (National Formosa University)",
+          "國立勤益科技大學 (National Chin‑Yi University of Technology)",
+          "國立中央大學 (National Central University)",
+          "國立聯合大學 (National United University)",
+          "國立屏東大學 (National Pingtung University)",
+          "國立金門大學 (National Quemoy University)",
+          "淡江大學 (Tamkang University)",
+          "大同大學 (Tatung University)",
+          "龍華科技大學 (Lunghwa University of Science and Technology)",
+          "臺北城市科技大學 (Taipei City University of Science and Technology)",
+          "宏國德霖科技大學 (Hungkuo Delin University of Technology)",
+          "Tunku Abdul Rahman University of Management and Technology (TAR UMT)",
+          "寧德師範學院 (Ningde Normal University)",
+          "廈門大學 (Xiamen University)"
         ],
         "schools": [
-          "新北市立鷺江國小 (New Taipei City Lujiang Elementary School)",
-          "新北市立三民高中 (New Taipei Municipal San Min High School)",
-          "新北市立新北高中 (New Taipei Municipal Xinbei Senior High School)",
-          "臺北市立師大附中 (Affiliated Senior High School of National Taiwan Normal University)",
-          "新北市立淡水商工 (New Taipei City Tamsui Commercial and Industrial Vocational High School)",
-          "新北市立松山工農 (New Taipei City Songshan Agriculture & Industrial High School)",
-          "莊敬家商 (Chuang Ching Vocational High School)"
+          "新北市立鷺江國小 (New Taipei City Lujiang Elementary School)",
+          "新北市立三民高中 (New Taipei Municipal San Min High School)",
+          "新北市立新北高中 (New Taipei Municipal Xinbei Senior High School)",
+          "臺北市立師大附中 (Affiliated Senior High School of National Taiwan Normal University)",
+          "新北市立淡水商工 (New Taipei City Tamsui Commercial and Industrial Vocational High School)",
+          "新北市立松山工農 (New Taipei City Songshan Agriculture & Industrial High School)",
+          "莊敬家商 (Chuang Ching Vocational High School)"
         ],
         "companies": [
-          "鑫鴻達汽車 (Xin Hong Da Automotive)",
-          "泊森商行 (Bosen Trading Company)",
-          "網龍資訊工作室 (Network Dragon Information Studio)",
-          "萌夢創意工坊有限公司 (Dreamers Factory)",
-          "COFE Studio", 
-          "NeoLuman Studio", 
-          "錢威工業（新能源）集團 (Qian Wei Industrial New Energy Group)"
+          "鑫鴻達汽車 (Xin Hong Da Automotive)",
+          "泊森商行 (Bosen Trading Company)",
+          "網龍資訊工作室 (Network Dragon Information Studio)",
+          "萌夢創意工坊有限公司 (Dreamers Factory)",
+          "COFE Studio", 
+          "NeoLuman Studio", 
+          "錢威工業（新能源）集團 (Qian Wei Industrial New Energy Group)"
         ]
       }
     },
     "githubOrganization": {
       "url": "https://github.com/EMO-Labs",
-      "description": "Eternal Matrix of Omniscience Laboratory (EMO Labs) was founded in 2024, dedicated to enhancing life quality through technology.",
-      "location": "Taiwan",
-      "website": "https://sites.google.com/view/emo-lab",
-      "email": "emolab0831@gmail.com",
+      "description": "Eternal Matrix of Omniscience Laboratory (EMO Labs) was founded in 2024, dedicated to enhancing life quality through technology【276852104531025†L150-L154】.",
+      "location": "Taiwan【276852104531025†L157-L160】",
+      "website": "https://sites.google.com/view/emo-lab【276852104531025†L157-L160】",
+      "email": "emolab0831@gmail.com【276852104531025†L157-L161】",
       "repositories": [
         {
           "name": "website",
           "language": "HTML",
           "license": "MIT",
-          "description": "GitHub Pages 網站程式碼，用於展示團隊成員",
+          "description": "GitHub Pages 網站程式碼，用於展示團隊成員【794938574422411†L2-L16】",
           "updated": "2024-12-15"
         },
         {
@@ -86,4 +86,5 @@
         }
       ]
     }
-}
+  }
+  

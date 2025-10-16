@@ -1,0 +1,387 @@
+/* ===== Responsive Design ===== */
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .hero__title-main {
+    font-size: 4rem;
+  }
+  
+  .hero__title-sub {
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop (1200px and up) */
+@media (min-width: 1200px) {
+  .navigation__toggle {
+    display: none;
+  }
+  
+  .news__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .achievements-highlights__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablet (768px to 1199px) */
+@media (max-width: 1199px) {
+  .navigation__toggle {
+    display: flex;
+  }
+  
+  .navigation__menu {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-primary-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+  }
+  
+  .navigation__menu--active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .navigation__list {
+    flex-direction: column;
+    padding: var(--spacing-6);
+    gap: var(--spacing-2);
+  }
+  
+  .navigation__link {
+    display: block;
+    padding: var(--spacing-4);
+    border-radius: var(--radius-md);
+  }
+  
+  .hero__title-main {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .hero__title-sub {
+    font-size: var(--font-size-lg);
+  }
+  
+  .hero__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-preview__content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+    text-align: center;
+  }
+  
+  .news__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .achievements-highlights__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .footer__content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+  
+  .footer__links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+  :root {
+    --font-size-4xl: 2rem;
+    --font-size-3xl: 1.75rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-xl: 1.25rem;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-3);
+  }
+  
+  .section {
+    padding: var(--spacing-12) 0;
+  }
+  
+  .navigation__container {
+    padding: var(--spacing-3);
+  }
+  
+  .navigation__logo {
+    font-size: var(--font-size-lg);
+  }
+  
+  .hero {
+    min-height: 80vh;
+    padding: var(--spacing-8) 0;
+  }
+  
+  .hero__title-main {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .hero__title-sub {
+    font-size: var(--font-size-base);
+  }
+  
+  .hero__slogan {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-6);
+  }
+  
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .news__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+  
+  .news__item {
+    padding: var(--spacing-4);
+  }
+  
+  .about-preview__content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+  }
+  
+  .about-preview__image {
+    order: -1;
+  }
+  
+  .achievements-highlights__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-4);
+  }
+  
+  .achievement-card {
+    padding: var(--spacing-4);
+  }
+  
+  .achievement-card__icon {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .achievement-card__title {
+    font-size: var(--font-size-base);
+  }
+  
+  .achievement-card__description {
+    font-size: var(--font-size-xs);
+  }
+  
+  .cta__title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .cta__description {
+    font-size: var(--font-size-base);
+  }
+  
+  .cta__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .page-header {
+    padding: calc(var(--spacing-16) + 60px) 0 var(--spacing-12);
+  }
+  
+  .page-header__title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .page-header__subtitle {
+    font-size: var(--font-size-base);
+  }
+  
+  .footer__content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+  }
+  
+  .footer__links {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+  }
+  
+  .footer__brand {
+    text-align: center;
+  }
+  
+  .footer__bottom {
+    text-align: center;
+  }
+}
+
+/* Extra Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-2);
+  }
+  
+  .navigation__container {
+    padding: var(--spacing-2);
+  }
+  
+  .hero__title-main {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .hero__title-sub {
+    font-size: var(--font-size-sm);
+  }
+  
+  .hero__slogan {
+    font-size: var(--font-size-sm);
+  }
+  
+  .achievements-highlights__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .news__item {
+    padding: var(--spacing-3);
+  }
+  
+  .achievement-card {
+    padding: var(--spacing-3);
+  }
+  
+  .cta__title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .page-header__title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* ===== Navigation Toggle Animation ===== */
+@media (max-width: 1199px) {
+  .navigation__toggle--active .navigation__toggle-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .navigation__toggle--active .navigation__toggle-line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navigation__toggle--active .navigation__toggle-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  .navigation,
+  .hero__scroll-indicator,
+  .cta,
+  .footer {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .hero {
+    min-height: auto;
+    padding: var(--spacing-8) 0;
+  }
+  
+  .section {
+    padding: var(--spacing-4) 0;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .button {
+    border: 1px solid black;
+    background: white;
+    color: black;
+  }
+}
+
+/* ===== High Contrast Mode ===== */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary-dark: #000000;
+    --color-primary-medium: #1a1a1a;
+    --color-accent-blue: #0066cc;
+    --color-accent-purple: #6600cc;
+    --color-white: #ffffff;
+    --color-medium-gray: #666666;
+  }
+  
+  .button {
+    border-width: 3px;
+  }
+  
+  .navigation__link {
+    border: 1px solid transparent;
+  }
+  
+  .navigation__link:hover,
+  .navigation__link--active {
+    border-color: var(--color-accent-blue);
+  }
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .hero__scroll-arrow {
+    animation: none;
+  }
+  
+  .hero__particles {
+    display: none;
+  }
+}
+
+/* ===== Dark Mode Support ===== */
+@media (prefers-color-scheme: dark) {
+  /* Already using dark theme as default */
+}
+
+/* ===== Light Mode Override (if needed) ===== */
+@media (prefers-color-scheme: light) {
+  /* Keep dark theme as per design requirements */
+}
