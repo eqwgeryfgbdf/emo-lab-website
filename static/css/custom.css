@@ -1,0 +1,342 @@
+/* EMO Lab 自定義樣式 */
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --text-color: #2c3e50;
+    --border-color: #dee2e6;
+}
+
+/* 全域樣式 */
+body {
+    font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* 導航欄樣式 */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: var(--secondary-color) !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+
+/* Hero 區塊樣式 */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* 卡片樣式 */
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 按鈕樣式 */
+.btn {
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 10px 25px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--secondary-color), #2980b9);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #2980b9, var(--secondary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* 成果卡片特殊樣式 */
+.achievement-card {
+    border-left: 4px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+    border-left-color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+/* 團隊成員卡片 */
+.team-member-card {
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.team-member-card:hover {
+    transform: translateY(-10px);
+}
+
+.team-member-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    display: block;
+    border: 4px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.team-member-card:hover .team-member-photo {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 消息項目樣式 */
+.news-item {
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.news-item:hover {
+    background-color: var(--light-color);
+    padding-left: 15px;
+    border-radius: 5px;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+/* 合作夥伴Logo樣式 */
+.partner-logo {
+    max-height: 60px;
+    max-width: 200px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* 頁尾樣式 */
+.footer {
+    background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
+    color: white;
+    padding: 40px 0 20px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--secondary-color);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .team-member-photo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 40px 0;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .btn-lg {
+        padding: 8px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* 動畫效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* 載入動畫 */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 自定義滾動條 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* 工具提示樣式 */
+.tooltip {
+    font-size: 0.875rem;
+}
+
+/* 徽章樣式 */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.5em 0.75em;
+    border-radius: 20px;
+}
+
+/* 表單樣式 */
+.form-control {
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* 自定義工具類 */
+.text-gradient {
+    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+.bg-gradient-light {
+    background: linear-gradient(135deg, var(--light-color) 0%, #ffffff 100%);
+}
+
+/* 特殊效果 */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 打印樣式 */
+@media print {
+    .navbar,
+    .footer,
+    .btn {
+        display: none !important;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}

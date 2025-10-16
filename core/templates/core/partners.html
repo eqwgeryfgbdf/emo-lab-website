@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block title %}合作夥伴 - EMO Lab{% endblock %}
+
+{% block content %}
+<!-- 頁面標題 -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 fw-bold mb-3">合作夥伴</h1>
+                <p class="lead">感謝所有支持我們的合作夥伴</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 合作夥伴列表 -->
+<section class="py-5">
+    <div class="container">
+        <!-- 大學院校 -->
+        {% if universities %}
+        <div class="mb-5">
+            <h2 class="mb-4">
+                <i class="fas fa-university text-primary me-2"></i>大學院校
+            </h2>
+            <div class="row g-3">
+                {% for university in universities %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            {% if university.logo %}
+                                <img src="{{ university.logo.url }}" 
+                                     alt="{{ university.name }}" 
+                                     class="partner-logo mb-3">
+                            {% else %}
+                                <i class="fas fa-university fa-3x text-muted mb-3"></i>
+                            {% endif %}
+                            <h6 class="card-title">{{ university.name }}</h6>
+                            {% if university.description %}
+                                <p class="card-text text-muted small">{{ university.description }}</p>
+                            {% endif %}
+                            {% if university.website_url %}
+                                <a href="{{ university.website_url }}" 
+                                   target="_blank" 
+                                   class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i>官方網站
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- 中小學 -->
+        {% if schools %}
+        <div class="mb-5">
+            <h2 class="mb-4">
+                <i class="fas fa-school text-success me-2"></i>中小學
+            </h2>
+            <div class="row g-3">
+                {% for school in schools %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            {% if school.logo %}
+                                <img src="{{ school.logo.url }}" 
+                                     alt="{{ school.name }}" 
+                                     class="partner-logo mb-3">
+                            {% else %}
+                                <i class="fas fa-school fa-3x text-muted mb-3"></i>
+                            {% endif %}
+                            <h6 class="card-title">{{ school.name }}</h6>
+                            {% if school.description %}
+                                <p class="card-text text-muted small">{{ school.description }}</p>
+                            {% endif %}
+                            {% if school.website_url %}
+                                <a href="{{ school.website_url }}" 
+                                   target="_blank" 
+                                   class="btn btn-sm btn-outline-success">
+                                    <i class="fas fa-external-link-alt me-1"></i>官方網站
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- 企業 -->
+        {% if companies %}
+        <div class="mb-5">
+            <h2 class="mb-4">
+                <i class="fas fa-building text-warning me-2"></i>企業夥伴
+            </h2>
+            <div class="row g-3">
+                {% for company in companies %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            {% if company.logo %}
+                                <img src="{{ company.logo.url }}" 
+                                     alt="{{ company.name }}" 
+                                     class="partner-logo mb-3">
+                            {% else %}
+                                <i class="fas fa-building fa-3x text-muted mb-3"></i>
+                            {% endif %}
+                            <h6 class="card-title">{{ company.name }}</h6>
+                            {% if company.description %}
+                                <p class="card-text text-muted small">{{ company.description }}</p>
+                            {% endif %}
+                            {% if company.website_url %}
+                                <a href="{{ company.website_url }}" 
+                                   target="_blank" 
+                                   class="btn btn-sm btn-outline-warning">
+                                    <i class="fas fa-external-link-alt me-1"></i>官方網站
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if not universities and not schools and not companies %}
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="card">
+                    <div class="card-body py-5">
+                        <i class="fas fa-handshake fa-3x text-muted mb-3"></i>
+                        <h5 class="text-muted">暫無合作夥伴資料</h5>
+                        <p class="text-muted">合作夥伴資料正在整理中，敬請期待。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- 成為合作夥伴 -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-4">成為我們的合作夥伴</h2>
+                <p class="lead mb-4">
+                    如果您有興趣與EMO Lab合作，歡迎與我們聯繫！
+                </p>
+                <a href="{% url 'core:contact' %}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-envelope me-2"></i>聯絡我們
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
