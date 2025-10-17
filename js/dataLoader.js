@@ -226,18 +226,36 @@ class DataLoader {
   }
 
   /**
-   * Initialize data loading
+   * Initialize data loading with priority
    */
   async initialize() {
     try {
-      await Promise.all([
-        this.loadSiteData(),
-        this.loadAchievementsData()
-      ]);
+      // Load critical data first
+      await this.loadSiteData();
+      
+      // Load achievements data in background
+      this.loadAchievementsData().catch(error => {
+        console.warn('Achievements data loading failed:', error);
+      });
+      
       return this.isDataLoaded();
     } catch (error) {
       console.error('Error initializing data loader:', error);
       return false;
+    }
+  }
+
+  /**
+   * Load data with retry mechanism
+   */
+  async loadWithRetry(loadFunction, maxRetries = 3) {
+    for (let i = 0; i < maxRetries; i++) {
+      try {
+        return await loadFunction();
+      } catch (error) {
+        if (i === maxRetries - 1) throw error;
+        await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+      }
     }
   }
 }

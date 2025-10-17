@@ -7,15 +7,29 @@
     <meta name="description" content="EMO Lab 全名為 Eternal Matrix of Omniscience，致力於將人工智慧、物聯網、數位影像等跨領域技術轉化為觸動人心、改變生活的應用。">
     <meta name="keywords" content="EMO Lab, 人工智慧, AI, 物聯網, IoT, 數位影像, 科技創新, 龍華科技大學">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css">
+    <!-- CSS - Optimized Loading -->
+    <link rel="preload" href="css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/main.min.css"></noscript>
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preload" href="css/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/animations.css"></noscript>
     
-    <!-- Fonts -->
+    <!-- Fonts - Optimized Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"></noscript>
+    
+    <!-- Critical CSS Inline -->
+    <style>
+      /* Critical font fallbacks */
+      body { font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      
+      /* Critical above-the-fold styles */
+      .hero { min-height: 100vh; background: linear-gradient(135deg, #0a0e27, #1a1d3a); }
+      .navigation { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 14, 39, 0.95); }
+    </style>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -183,9 +197,27 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/dataLoader.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
+    <!-- JavaScript - Optimized Loading -->
+    <script src="js/main.min.js"></script>
+    
+    <!-- Non-critical JavaScript loaded asynchronously -->
+    <script>
+      // Load non-critical scripts after page load
+      window.addEventListener('load', () => {
+        const scripts = [
+          'js/animations.js',
+          'js/lazyLoading.js',
+          'js/performanceOptimizer.js',
+          'js/performanceMonitor.js'
+        ];
+        
+        scripts.forEach(src => {
+          const script = document.createElement('script');
+          script.src = src;
+          script.async = true;
+          document.head.appendChild(script);
+        });
+      });
+    </script>
 </body>
 </html>

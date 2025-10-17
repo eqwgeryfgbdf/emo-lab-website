@@ -1464,6 +1464,88 @@ a:hover {
   padding: var(--spacing-8);
 }
 
+/* ===== Lazy Loading Styles ===== */
+.lazy {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lazy.loaded {
+  opacity: 1;
+}
+
+.image-placeholder {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border-radius: var(--radius-lg);
+}
+
+.placeholder-content {
+  text-align: center;
+  color: var(--color-medium-gray);
+}
+
+.placeholder-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--color-light-gray);
+  border-top: 3px solid var(--color-accent-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto var(--spacing-2);
+}
+
+.placeholder-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-medium-gray);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Performance Optimizations ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  will-change: transform;
+}
+
+.lazy-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.lazy-section.lazy-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Critical Resource Preloading ===== */
+.preload-font {
+  font-display: swap;
+}
+
 /* ===== Utility Classes ===== */
 .u-text-center { text-align: center; }
 .u-text-left { text-align: left; }
