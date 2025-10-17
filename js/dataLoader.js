@@ -222,6 +222,13 @@ class DataLoader {
    * Check if data is loaded
    */
   isDataLoaded() {
+    return this.siteData !== null;
+  }
+
+  /**
+   * Check if all data is loaded
+   */
+  isAllDataLoaded() {
     return this.siteData !== null && this.achievementsData !== null;
   }
 

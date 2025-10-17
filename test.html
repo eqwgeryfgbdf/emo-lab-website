@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMO Lab 效能測試</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .success { background: #d4edda; border-color: #c3e6cb; }
+        .error { background: #f8d7da; border-color: #f5c6cb; }
+        .loading { background: #fff3cd; border-color: #ffeaa7; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        #console-output {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>EMO Lab 網站效能測試</h1>
+        
+        <div class="test-item">
+            <h3>資料載入測試</h3>
+            <button onclick="testDataLoading()">測試資料載入</button>
+            <div id="data-status">等待測試...</div>
+        </div>
+        
+        <div class="test-item">
+            <h3>效能監控測試</h3>
+            <button onclick="testPerformanceMonitoring()">測試效能監控</button>
+            <div id="performance-status">等待測試...</div>
+        </div>
+        
+        <div class="test-item">
+            <h3>控制台輸出</h3>
+            <button onclick="clearConsole()">清除輸出</button>
+            <div id="console-output"></div>
+        </div>
+        
+        <div class="test-item">
+            <h3>快速連結</h3>
+            <a href="index.html" target="_blank">
+                <button>開啟主網站</button>
+            </a>
+            <a href="about.html" target="_blank">
+                <button>開啟關於頁面</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 重寫 console.log 來顯示在頁面上
+        const originalLog = console.log;
+        const originalWarn = console.warn;
+        const originalError = console.error;
+        
+        function logToPage(message, type = 'log') {
+            const output = document.getElementById('console-output');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `[${timestamp}] ${type.toUpperCase()}: ${message}`;
+            logEntry.style.color = type === 'error' ? 'red' : type === 'warn' ? 'orange' : 'black';
+            output.appendChild(logEntry);
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            logToPage(args.join(' '), 'log');
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            logToPage(args.join(' '), 'warn');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            logToPage(args.join(' '), 'error');
+        };
+        
+        // 測試資料載入
+        async function testDataLoading() {
+            const statusDiv = document.getElementById('data-status');
+            statusDiv.innerHTML = '正在測試資料載入...';
+            statusDiv.className = 'test-item loading';
+            
+            try {
+                // 載入資料載入器
+                const script = document.createElement('script');
+                script.src = 'js/dataLoader.js';
+                script.onload = async () => {
+                    try {
+                        console.log('開始測試資料載入...');
+                        
+                        // 等待資料載入器初始化
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                        
+                        if (window.dataLoader) {
+                            console.log('資料載入器已載入');
+                            
+                            // 測試載入網站資料
+                            const siteData = await window.dataLoader.loadSiteData();
+                            if (siteData) {
+                                console.log('網站資料載入成功');
+                                console.log('實驗室名稱:', siteData.lab?.name);
+                                console.log('團隊成員數量:', siteData.lab?.team?.length || 0);
+                                
+                                // 測試載入成果資料
+                                const achievementsData = await window.dataLoader.loadAchievementsData();
+                                if (achievementsData) {
+                                    console.log('成果資料載入成功');
+                                    console.log('成果數量:', achievementsData.achievements?.length || 0);
+                                }
+                                
+                                statusDiv.innerHTML = '✅ 資料載入測試成功！';
+                                statusDiv.className = 'test-item success';
+                            } else {
+                                throw new Error('網站資料載入失敗');
+                            }
+                        } else {
+                            throw new Error('資料載入器未載入');
+                        }
+                    } catch (error) {
+                        console.error('資料載入測試失敗:', error);
+                        statusDiv.innerHTML = '❌ 資料載入測試失敗: ' + error.message;
+                        statusDiv.className = 'test-item error';
+                    }
+                };
+                script.onerror = () => {
+                    console.error('無法載入資料載入器腳本');
+                    statusDiv.innerHTML = '❌ 無法載入資料載入器腳本';
+                    statusDiv.className = 'test-item error';
+                };
+                document.head.appendChild(script);
+                
+            } catch (error) {
+                console.error('測試過程中發生錯誤:', error);
+                statusDiv.innerHTML = '❌ 測試失敗: ' + error.message;
+                statusDiv.className = 'test-item error';
+            }
+        }
+        
+        // 測試效能監控
+        function testPerformanceMonitoring() {
+            const statusDiv = document.getElementById('performance-status');
+            statusDiv.innerHTML = '正在測試效能監控...';
+            statusDiv.className = 'test-item loading';
+            
+            try {
+                // 載入效能監控器
+                const script = document.createElement('script');
+                script.src = 'js/performanceMonitor.js';
+                script.onload = () => {
+                    try {
+                        console.log('開始測試效能監控...');
+                        
+                        if (window.performanceMonitor) {
+                            console.log('效能監控器已載入');
+                            
+                            // 等待一段時間讓監控器收集數據
+                            setTimeout(() => {
+                                const score = window.performanceMonitor.getPerformanceScore();
+                                console.log('效能分數:', score);
+                                
+                                const metrics = window.performanceMonitor.metrics;
+                                console.log('效能指標:', metrics);
+                                
+                                statusDiv.innerHTML = `✅ 效能監控測試成功！<br>
+                                    總分: ${score.overall}/100 (${score.grade})<br>
+                                    LCP: ${score.breakdown.lcp}/100<br>
+                                    FID: ${score.breakdown.fid}/100<br>
+                                    CLS: ${score.breakdown.cls}/100`;
+                                statusDiv.className = 'test-item success';
+                            }, 2000);
+                        } else {
+                            throw new Error('效能監控器未載入');
+                        }
+                    } catch (error) {
+                        console.error('效能監控測試失敗:', error);
+                        statusDiv.innerHTML = '❌ 效能監控測試失敗: ' + error.message;
+                        statusDiv.className = 'test-item error';
+                    }
+                };
+                script.onerror = () => {
+                    console.error('無法載入效能監控器腳本');
+                    statusDiv.innerHTML = '❌ 無法載入效能監控器腳本';
+                    statusDiv.className = 'test-item error';
+                };
+                document.head.appendChild(script);
+                
+            } catch (error) {
+                console.error('測試過程中發生錯誤:', error);
+                statusDiv.innerHTML = '❌ 測試失敗: ' + error.message;
+                statusDiv.className = 'test-item error';
+            }
+        }
+        
+        // 清除控制台輸出
+        function clearConsole() {
+            document.getElementById('console-output').innerHTML = '';
+        }
+        
+        // 頁面載入完成後自動開始測試
+        window.addEventListener('load', () => {
+            console.log('測試頁面載入完成');
+            console.log('請點擊按鈕開始測試');
+        });
+    </script>
+</body>
+</html>

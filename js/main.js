@@ -30,7 +30,7 @@ class EMOWebsite {
    */
   async waitForData() {
     let attempts = 0;
-    const maxAttempts = 50; // 5 seconds max
+    const maxAttempts = 30; // 3 seconds max for critical data
     
     while (!this.dataLoader.isDataLoaded() && attempts < maxAttempts) {
       await new Promise(resolve => setTimeout(resolve, 100));
@@ -38,7 +38,9 @@ class EMOWebsite {
     }
     
     if (!this.dataLoader.isDataLoaded()) {
-      console.warn('Data loading timeout, continuing with limited functionality');
+      console.warn('Critical data loading timeout, continuing with limited functionality');
+    } else {
+      console.log('Critical data loaded successfully');
     }
   }
 
