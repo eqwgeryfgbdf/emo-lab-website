@@ -8,6 +8,7 @@ class DataLoader {
     this.siteData = null;
     this.achievementsData = null;
     this.isLoading = false;
+    this.basePath = '';
   }
 
   /**
@@ -18,7 +19,7 @@ class DataLoader {
     
     this.isLoading = true;
     try {
-      const response = await fetch('data/site-data.json');
+      const response = await fetch(`${this.basePath}data/site-data.json`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -40,7 +41,7 @@ class DataLoader {
     
     this.isLoading = true;
     try {
-      const response = await fetch('data/achievements.json');
+      const response = await fetch(`${this.basePath}data/achievements.json`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

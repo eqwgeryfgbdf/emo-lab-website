@@ -72,10 +72,10 @@
         
         <div class="test-item">
             <h3>快速連結</h3>
-            <a href="index.html" target="_blank">
+            <a href="../index.html" target="_blank">
                 <button>開啟主網站</button>
             </a>
-            <a href="about.html" target="_blank">
+            <a href="../about.html" target="_blank">
                 <button>開啟關於頁面</button>
             </a>
         </div>
@@ -121,7 +121,7 @@
             try {
                 // 載入資料載入器
                 const script = document.createElement('script');
-                script.src = 'js/dataLoader.js';
+                script.src = '../js/dataLoader.js';
                 script.onload = async () => {
                     try {
                         console.log('開始測試資料載入...');
@@ -131,6 +131,9 @@
                         
                         if (window.dataLoader) {
                             console.log('資料載入器已載入');
+                            
+                            // Set base path for test environment
+                            window.dataLoader.basePath = '../';
                             
                             // 測試載入網站資料
                             const siteData = await window.dataLoader.loadSiteData();
@@ -183,7 +186,7 @@
             try {
                 // 載入效能監控器
                 const script = document.createElement('script');
-                script.src = 'js/performanceMonitor.js';
+                script.src = '../js/performanceMonitor.js';
                 script.onload = () => {
                     try {
                         console.log('開始測試效能監控...');

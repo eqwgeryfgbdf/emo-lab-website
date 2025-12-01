@@ -219,8 +219,14 @@
       "team.html", 
       "achievements.html",
       "partners.html",
-      "contact.html",
-      "naming-conventions.json"
+      "contact.html"
+    ],
+    "docs": [
+      "naming-conventions.json",
+      "PERFORMANCE_OPTIMIZATION.md"
+    ],
+    "tests": [
+      "test.html"
     ],
     "css": [
       "main.css",

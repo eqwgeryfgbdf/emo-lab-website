@@ -432,16 +432,42 @@ class EMOWebsite {
    * Initialize animations
    */
   initAnimations() {
-    // Setup scroll animations for new content
-    this.animationController.observeScrollElements();
+    // Simplified animation initialization
+    console.log('Animations initialized (simplified version)');
     
-    // Setup smooth scrolling
-    this.animationController.setupSmoothScrolling();
-    
-    // Setup parallax for hero section
-    if (this.currentPage === 'index') {
-      this.animationController.setupParallax();
-    }
+    // Basic scroll animations can be added here if needed
+    this.setupBasicScrollAnimations();
+  }
+
+  /**
+   * Setup basic scroll animations
+   */
+  setupBasicScrollAnimations() {
+    // Simple scroll-based animations without external dependencies
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -100px 0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          // Unobserve after animation to prevent re-triggering
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Wait for DOM to be ready, then observe elements
+    setTimeout(() => {
+      const animateElements = document.querySelectorAll('.scroll-animate');
+      console.log(`Setting up animations for ${animateElements.length} elements`);
+      animateElements.forEach(element => {
+        observer.observe(element);
+      });
+    }, 100);
   }
 
   /**

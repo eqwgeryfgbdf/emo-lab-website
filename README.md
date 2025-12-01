@@ -36,7 +36,11 @@ EMO Lab 官方網站是一個現代化的靜態網站，用於展示 EMO Lab（E
 │   ├── site-data.json     # 網站資料
 │   └── achievements.json  # 成果資料
 ├── images/                 # 圖片資源
-└── naming-conventions.json # 命名規範
+├── docs/                   # 文件資料
+│   ├── naming-conventions.json # 命名規範
+│   └── PERFORMANCE_OPTIMIZATION.md # 效能優化報告
+└── tests/                  # 測試檔案
+    └── test.html          # 測試頁面
 ```
 
 ## 技術規格
@@ -98,7 +102,7 @@ EMO Lab 官方網站是一個現代化的靜態網站，用於展示 EMO Lab（E
 
 ## 命名規範
 
-詳細的命名規範請參考 `naming-conventions.json` 檔案，包含：
+詳細的命名規範請參考 `docs/naming-conventions.json` 檔案，包含：
 
 - 檔案命名規則
 - CSS 類別命名（BEM方法論）
